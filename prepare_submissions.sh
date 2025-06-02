@@ -34,7 +34,7 @@ echo "Output File Name: ${FILE_NAME}"
 
 # Build the Docker image
 echo "Building Docker image: ${IMAGE_NAME}..."
-if docker build --network=host -t "${IMAGE_NAME}" .; then
+if docker build -t "${IMAGE_NAME}" .; then
     echo "Docker image built successfully."
 else
     echo "Error: Failed to build Docker image."
