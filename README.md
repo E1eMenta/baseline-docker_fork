@@ -183,7 +183,7 @@ Once you have integrated your own model, you can test it using the same instruct
 Once you have tested your model, you can submit the docker image to the competition. You can do this by running the following command:
 
 ```bash
-./prepare_submission.sh <team_name> <track_name> <algorithm_name> <version>
+./prepare_submissions.sh <team_name> <track_name> <algorithm_name> <version>
 ```
 
 - `<track_name>` must be one of: `track_1` (detection), `track_2` (localization), or `track_both` (detection and localization).
