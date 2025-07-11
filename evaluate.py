@@ -32,6 +32,8 @@ for frame in tqdm(frames):
     y_true.append(label)
     y_score.append(score)
 
+    print(f"Score: {score}, Label: {label}")
+
 y_binary = [1 if s > 0.5 else 0 for s in y_score]
 
 f1 = f1_score(y_true, y_binary)
