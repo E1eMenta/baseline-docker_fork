@@ -1,3 +1,5 @@
+import pickle
+
 import allegroai
 from sklearn.metrics import f1_score, roc_auc_score
 from tqdm import tqdm
@@ -33,6 +35,13 @@ for frame in tqdm(frames):
     y_score.append(score)
 
     print(f"Score: {score}, Label: {label}")
+
+with open("results.pickle", "wb") as f:
+
+    pickle.dump((y_true, y_score), f)
+with open("results.pickle", "rb") as f:
+    y_true, y_score = pickle.load(f)
+
 
 y_binary = [1 if s > 0.5 else 0 for s in y_score]
 
