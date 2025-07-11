@@ -23,5 +23,5 @@ class TruForInference:
 
         img = preprocess_image(img)
         score = self.model.detect(img)
-        score = float(score)
+        score = 1.0 - float(score)
         return score
