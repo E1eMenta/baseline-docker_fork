@@ -7,6 +7,7 @@
 
 from collections import namedtuple
 from pathlib import Path
+from typing import Tuple
 import numpy as np
 import torch as pt
 import torch.nn as nn
@@ -86,7 +87,7 @@ class TruFor:
 
         return self._model
 
-    def _forward(self, batch: pt.Tensor) -> tuple[pt.Tensor, ...]:
+    def _forward(self, batch: pt.Tensor) -> Tuple[pt.Tensor, ...]:
         """Run forward: -> mask_pred, conf, det, npp"""
         with pt.inference_mode():
             batch = batch.to(device=self.device)
@@ -118,7 +119,7 @@ class TruFor:
         # return a boolean mask of the image
         return mask >= 0.5
 
-    def detect_and_localize(self, img: pt.Tensor) -> tuple[float, np.ndarray]:
+    def detect_and_localize(self, img: pt.Tensor) -> Tuple[float, np.ndarray]:
         """Run detection and localization in one forward pass."""
         batch = img[None, ...]
         pred, _, det, _ = self._forward(batch=batch)
